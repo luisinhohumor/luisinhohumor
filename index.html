@@ -24,13 +24,21 @@
             background-size: cover; /* Faz a imagem cobrir todo o fundo */
             background-position: center; /* Centraliza a imagem */
             background-repeat: no-repeat; /* Evita que a imagem se repita */
+            cursor: default; /* Remove o cursor de ponteiro */
         }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4 transition-colors duration-300">
 
-    <!-- Container principal do site -->
-    <main class="w-full max-w-sm p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl text-center flex flex-col items-center gap-6 transform transition-transform duration-300 hover:scale-105">
+    <!-- Tag de áudio para a música de fundo -->
+    <audio id="background-music" loop>
+        <!-- Novo link para um arquivo de áudio muito mais leve -->
+        <source src="https://www.epidemicsound.com/track/44lqJXMI8L/" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+    </audio>
+
+    <!-- Container principal do site. Adicionamos um ID para o JavaScript detectar cliques aqui. -->
+    <main id="main-content" class="w-full max-w-sm p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl text-center flex flex-col items-center gap-6 transform transition-transform duration-300 hover:scale-105">
 
         <!-- Seção de perfil -->
         <div class="flex flex-col items-center gap-4">
@@ -82,38 +90,36 @@
             Moedas TikTok
         </a>
 
-        <audio id="background-music" loop autoplay>
-  <source src="https://www.epidemicsound.com/track/D7APTlJgcZ/" type="audio/mpeg">
-  Seu navegador não suporta a tag de ádio.
-</audio>
-
     </main>
-
+    
+    <!-- Script para o áudio -->
     <script>
-        // O JavaScript abaixo simula a funcionalidade. Para um site real, você precisaria
-        // de um serviço de backend para verificar o status da sua live em tempo real.
-
-        // Altere a variável abaixo para 'true' para simular que você está em live,
-        // ou 'false' para simular que não está.
         const isLive = false; 
-
         const liveButton = document.getElementById('live-button');
         const liveIndicator = document.getElementById('live-indicator');
+        const audio = document.getElementById('background-music');
+        const mainContent = document.getElementById('main-content');
+        let hasPlayed = false;
 
         if (isLive) {
-            // Atualiza o texto do botão e mostra o indicador de "Ao Vivo"
             liveButton.textContent = "Assista a Live Agora!";
             liveButton.classList.add('animate-pulse');
             liveIndicator.classList.remove('opacity-0', '-translate-y-2');
             liveIndicator.classList.add('opacity-100', 'translate-y-0');
         }
 
-        // Script para alternar o modo escuro/claro
+        // Adiciona um evento de clique para a área principal do site
+        mainContent.addEventListener('click', () => {
+            if (!hasPlayed) {
+                audio.play();
+                hasPlayed = true;
+            }
+        });
+
         const toggleTheme = () => {
             document.body.classList.toggle('dark');
         }
 
-        // Adiciona o botão de tema ao body
         const themeToggleButton = document.createElement('button');
         themeToggleButton.textContent = 'Alternar Tema';
         themeToggleButton.className = 'fixed bottom-4 right-4 p-3 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow-lg transition-colors duration-300';
@@ -123,5 +129,6 @@
     </script>
 </body>
 </html>
+
 
 
