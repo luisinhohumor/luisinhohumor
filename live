@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Redes e Lives</title>
+    <!-- Inclui a fonte Inter do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Inclui a biblioteca de ícones Font Awesome para os botões de redes sociais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Inclui o framework Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* Estilo para o novo fundo de imagem */
+            background-color: #f0f0f0; /* Cor de fundo para fallback */
+            background-image: url(https://images.pexels.com/photos/26871152/pexels-photo-26871152.jpeg);
+            background-size: cover; /* Faz a imagem cobrir todo o fundo */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita que a imagem se repita */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 transition-colors duration-300">
+
+    <!-- Container principal do site -->
+    <main class="w-full max-w-sm p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl text-center flex flex-col items-center gap-6 transform transition-transform duration-300 hover:scale-105">
+
+        <!-- Seção de perfil -->
+        <div class="flex flex-col items-center gap-4">
+            <!-- Imagem de perfil. Use uma imagem sua ou um URL de placeholder. -->
+            <img class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-indigo-500 shadow-md transition-transform duration-300 hover:scale-110" 
+                 src="https://p77-sign-va.tiktokcdn.com/tos-maliva-avt-0068/800d67f47ebe04120a5ffaea4dc74be2~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=a5e8cde1&x-expires=1755561600&x-signature=%2BzSKmkYya49QOqOEtz%2Bwf9qpKTw%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=maliva" alt="Foto de Perfil">
+            <!-- Nome ou nome de usuário -->
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">LuisinhoHumor🤪</h1>
+            <!-- Pequena biografia ou descrição -->
+            <p class="text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-xs leading-relaxed">
+                Bem-vindo(a) ao meu espaço! Aqui você encontra todos os links para minhas redes sociais e o link da minha live!
+            </p>
+        </div>
+
+        <!-- Seção de botões com links para redes sociais -->
+        <div class="w-full flex justify-center flex-wrap gap-3 mt-4">
+            <!-- Botão para o YouTube. Troque o href pelo seu link. -->
+            <a href="https://www.youtube.com/@luisinhumor" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-md transition-all duration-300 transform hover:scale-110">
+                <i class="fab fa-youtube text-xl"></i>
+            </a>
+            <!-- Botão para o Instagram. Troque o href pelo seu link. -->
+            <a href="https://www.instagram.com/luisinhohumor" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center w-12 h-12 rounded-full bg-pink-600 hover:bg-pink-700 text-white shadow-md transition-all duration-300 transform hover:scale-110">
+                <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <!-- Botão para o TikTok. Troque o href pelo seu link. -->
+            <a href="https://www.tiktok.com/@luisinhohumor" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-center w-12 h-12 rounded-full bg-black hover:bg-gray-800 text-white shadow-md transition-all duration-300 transform hover:scale-110">
+                <i class="fab fa-tiktok text-xl"></i>
+            </a>
+            <!-- Adicione mais botões conforme suas redes -->
+        </div>
+        
+        <!-- Botão principal para a live. A URL agora é do TikTok. -->
+        <a id="live-button" href="https://www.tiktok.com/@luisinhohumor" target="_blank" rel="noopener noreferrer"
+           class="w-full mt-4 py-3 px-6 text-lg font-bold rounded-full bg-indigo-600 text-white shadow-lg transform transition-all duration-300 hover:scale-105 hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50">
+            Ainda não estou em live.
+        </a>
+
+        <!-- Texto dinâmico que aparece quando estiver em live -->
+        <div id="live-indicator" class="mt-2 text-sm text-green-500 font-semibold opacity-0 transform -translate-y-2 transition-all duration-500">
+            🟢 Ao Vivo Agora!
+        </div>
+
+        <!-- NOVO: Botão para moedas do TikTok. Altere o href para o link de compra que você preferir. -->
+        <a href="https://www.tiktok.com/coin?Lang=pt-BR" target="_blank" rel="noopener noreferrer"
+           class="w-full mt-4 py-3 px-6 text-lg font-bold rounded-full bg-emerald-500 text-white shadow-lg transform transition-all duration-300 hover:scale-105 hover:bg-emerald-600 focus:outline-none focus:ring-4 focus:ring-emerald-500 focus:ring-opacity-50">
+            Moedas TikTok
+        </a>
+
+    </main>
+
+    <script>
+        // O JavaScript abaixo simula a funcionalidade. Para um site real, você precisaria
+        // de um serviço de backend para verificar o status da sua live em tempo real.
+
+        // Altere a variável abaixo para 'true' para simular que você está em live,
+        // ou 'false' para simular que não está.
+        const isLive = false; 
+
+        const liveButton = document.getElementById('live-button');
+        const liveIndicator = document.getElementById('live-indicator');
+
+        if (isLive) {
+            // Atualiza o texto do botão e mostra o indicador de "Ao Vivo"
+            liveButton.textContent = "Assista a Live Agora!";
+            liveButton.classList.add('animate-pulse');
+            liveIndicator.classList.remove('opacity-0', '-translate-y-2');
+            liveIndicator.classList.add('opacity-100', 'translate-y-0');
+        }
+
+        // Script para alternar o modo escuro/claro
+        const toggleTheme = () => {
+            document.body.classList.toggle('dark');
+        }
+
+        // Adiciona o botão de tema ao body
+        const themeToggleButton = document.createElement('button');
+        themeToggleButton.textContent = 'Alternar Tema';
+        themeToggleButton.className = 'fixed bottom-4 right-4 p-3 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full shadow-lg transition-colors duration-300';
+        themeToggleButton.onclick = toggleTheme;
+        document.body.appendChild(themeToggleButton);
+
+    </script>
+</body>
+</html>
