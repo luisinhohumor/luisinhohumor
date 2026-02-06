@@ -72,34 +72,36 @@
 
         #whatsapp-modal { display: none; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); }
 
-        /* Estilo do Seletor de Cores Melhorado */
+        /* Estilo do Seletor de Cores - Ajustado para garantir visibilidade */
         .color-input-wrapper {
             width: 48px;
             height: 48px;
-            border-radius: 12px;
-            border: 2px solid rgba(255,255,255,0.1);
-            padding: 2px;
-            background: rgba(255,255,255,0.05);
+            border-radius: 50%; /* Transformado em círculo (disco) */
+            border: 2px solid rgba(255,255,255,0.2);
+            padding: 0;
+            background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); /* Visual de disco de cores */
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
+            overflow: hidden;
+            position: relative;
         }
         .color-input-wrapper:hover {
-            border-color: rgba(255,255,255,0.3);
-            transform: scale(1.05);
+            border-color: rgba(255,255,255,0.5);
+            transform: scale(1.1) rotate(15deg);
         }
         #color-picker {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            width: 200%;
+            height: 200%;
             border: none;
             background: none;
             cursor: pointer;
             padding: 0;
+            opacity: 0; /* Invisível mas clicável para abrir o seletor nativo */
         }
-        #color-picker::-webkit-color-swatch-wrapper { padding: 0; }
-        #color-picker::-webkit-color-swatch { border: none; border-radius: 8px; }
 
         .emoji-grid {
             display: grid;
@@ -264,11 +266,11 @@
                                 <label class="block text-xs font-bold uppercase text-gray-400">Seu Nome / Nick</label>
                                 <span class="text-[10px] text-gray-600">Máx. 20</span>
                             </div>
-                            <div class="flex gap-2">
+                            <div class="flex gap-2 items-center">
                                 <input type="text" id="mural-name" required maxlength="20" placeholder="Ex: João Humorista" class="w-full bg-black/30 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-600" style="color: #818cf8;">
                                 
-                                <!-- Seletor de Cores - Estilo Corrigido -->
-                                <div class="color-input-wrapper" title="Mudar cor do seu nome">
+                                <!-- Seletor de Cores - Ajustado para ser o Disco -->
+                                <div class="color-input-wrapper" title="Clique aqui para o disco de cores">
                                     <input type="color" id="color-picker" value="#818cf8">
                                 </div>
                             </div>
@@ -383,10 +385,12 @@
             icon.style.transform = gallery.classList.contains('opacity-100') ? 'rotate(180deg)' : 'rotate(0deg)';
         };
 
-        // Escuta a mudança de cor e aplica no campo de nome imediatamente
-        colorPicker.oninput = (e) => {
+        // CORREÇÃO: Escuta a mudança de cor e aplica no campo de nome imediatamente
+        colorPicker.addEventListener('input', (e) => {
             nameInput.style.color = e.target.value;
-        };
+            // Atualiza o fundo do wrapper para dar feedback visual (opcional)
+            // document.querySelector('.color-input-wrapper').style.borderColor = e.target.value;
+        });
 
         // Auth
         signInAnonymously(auth).catch(err => console.error("Auth Erro:", err));
