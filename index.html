@@ -72,14 +72,14 @@
 
         #whatsapp-modal { display: none; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); }
 
-        /* Estilo do Seletor de Cores - Ajustado para garantir visibilidade */
         .color-input-wrapper {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%; /* Transformado em círculo (disco) */
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 50%;
             border: 2px solid rgba(255,255,255,0.2);
             padding: 0;
-            background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red); /* Visual de disco de cores */
+            background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -100,7 +100,7 @@
             background: none;
             cursor: pointer;
             padding: 0;
-            opacity: 0; /* Invisível mas clicável para abrir o seletor nativo */
+            opacity: 0;
         }
 
         .emoji-grid {
@@ -121,7 +121,7 @@
 </head>
 <body class="antialiased p-4 sm:p-8 flex justify-center items-start">
 
-    <!-- Modal WhatsApp Solution -->
+    <!-- Modal WhatsApp -->
     <div id="whatsapp-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4">
         <div class="bg-[#1c1c1e] border border-white/10 w-full max-w-sm rounded-3xl p-6 shadow-2xl scale-95 opacity-0 transition-all duration-300 transform" id="modal-content">
             <div class="flex justify-between items-start mb-4">
@@ -135,13 +135,13 @@
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
-            <p class="text-gray-400 text-sm mb-6">Se o botão "Entrar" não funcionar no TikTok, escolha a opção "Copiar Link" e cole no seu navegador.</p>
+            <p class="text-gray-400 text-sm mb-6">Se o botão "Entrar" não funcionar no TikTok, copie o link abaixo e cole no seu navegador.</p>
             <div class="space-y-3">
                 <a href="https://chat.whatsapp.com/EIXwCOfms7J2GBy4Yz57Ku" target="_blank" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors">
                     <i class="fas fa-external-link-alt text-sm"></i> Entrar no Grupo
                 </a>
                 <button onclick="copyWhatsAppLink()" class="w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors">
-                    <i data-lucide="copy" class="w-4 h-4"></i> Copiar Link do Grupo
+                    <i data-lucide="copy" class="w-4 h-4"></i> Copiar Link
                 </button>
             </div>
         </div>
@@ -162,7 +162,6 @@
                     <button onclick="openWhatsAppModal()" class="text-[10px] font-bold bg-green-600/20 hover:bg-green-600/40 border border-green-500/30 text-white px-3 py-1 rounded-full transition-all flex items-center gap-1 w-fit group">
                         <i class="fab fa-whatsapp w-3 h-3 text-green-400 group-hover:text-white transition-colors"></i> Grupo do Zap
                     </button>
-                    <!-- Novo Botão Connessione -->
                     <div class="relative">
                         <button id="connessione-btn" onclick="toggleConnessione()" class="text-[10px] font-bold bg-blue-600/20 hover:bg-blue-600/40 border border-blue-500/30 text-white px-3 py-1 rounded-full transition-all flex items-center gap-1 w-fit group">
                             <i data-lucide="link" class="w-3 h-3 text-blue-400 group-hover:text-white transition-colors"></i> Connessione
@@ -189,20 +188,18 @@
                 </div>
                 <div class="relative z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     <h1 class="font-display font-black text-4xl md:text-5xl text-white mb-2 text-shadow">@luisinhohumor</h1>
-                    <p class="text-gray-200 text-sm md:text-base max-w-sm leading-relaxed text-shadow">Criador de conteúdo digital trazendo alegria para o seu dia. Bem-vindo ao meu espaço oficial.</p>
+                    <p class="text-gray-200 text-sm md:text-base max-w-sm leading-relaxed text-shadow">Criador de conteúdo digital trazendo alegria para o seu dia.</p>
                 </div>
             </div>
             <!-- LivePix -->
             <a href="https://livepix.gg/luisinhohumor" target="_blank" class="bento-card md:col-span-2 relative overflow-hidden group">
                 <div class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-500 opacity-90 transition-opacity group-hover:opacity-100"></div>
-                <div class="absolute -right-10 -bottom-10 opacity-20 transform rotate-12 group-hover:rotate-0 transition-transform duration-500"><i data-lucide="gift" class="w-48 h-48 text-white"></i></div>
                 <div class="relative z-10 p-6 h-full flex flex-col justify-center">
                     <div class="flex items-center gap-3 mb-2">
                         <div class="bg-white/20 p-2 rounded-lg"><i data-lucide="zap" class="text-yellow-300 w-6 h-6"></i></div>
                         <span class="font-bold text-emerald-100 uppercase tracking-widest text-xs">Apoie o Criador</span>
                     </div>
                     <h2 class="text-3xl font-display font-bold text-white">Mande um PIX</h2>
-                    <p class="text-emerald-100 mt-1 max-w-xs">Sua mensagem aparece na tela durante a live!</p>
                 </div>
             </a>
             <!-- Vídeo Destaque -->
@@ -211,7 +208,6 @@
                 <div class="relative z-10 flex flex-col items-center">
                     <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-2 shadow-lg group-hover:scale-110 transition-transform duration-300"><i class="fas fa-play text-white text-lg ml-1"></i></div>
                     <h3 class="text-2xl font-display font-black text-white text-shadow uppercase tracking-wide">Cancelados 1ep</h3>
-                    <span class="text-[10px] font-bold bg-red-600/80 text-white px-3 py-1 rounded-full mt-1 backdrop-blur-sm">Assista Agora</span>
                 </div>
             </a>
             <!-- Redes Sociais -->
@@ -221,23 +217,15 @@
             </a>
             <a href="https://www.instagram.com/luisinhohumor/" target="_blank" class="bento-card bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 p-6 flex flex-col justify-between group">
                 <div class="flex justify-between items-start"><i class="fab fa-instagram text-4xl text-white/90"></i><i data-lucide="arrow-up-right" class="text-white/50 group-hover:text-white transition-colors"></i></div>
-                <div><span class="text-pink-100 text-xs font-bold uppercase tracking-wider">Siga no Insta</span><h3 class="text-xl font-bold text-white mt-1">Instagram</h3></div>
+                <div><span class="text-pink-100 text-xs font-bold uppercase tracking-wider">Siga</span><h3 class="text-xl font-bold text-white mt-1">Instagram</h3></div>
             </a>
             <a href="https://www.youtube.com/@luisinhumor" target="_blank" class="bento-card bg-gradient-to-br from-red-600 to-red-800 p-6 flex flex-col justify-between group">
                 <div class="flex justify-between items-start"><i class="fab fa-youtube text-4xl text-white/90"></i><i data-lucide="arrow-up-right" class="text-white/50 group-hover:text-white transition-colors"></i></div>
                 <div><span class="text-red-200 text-xs font-bold uppercase tracking-wider">Inscreva-se</span><h3 class="text-xl font-bold text-white mt-1">YouTube</h3></div>
             </a>
-            <a href="https://www.facebook.com/luis.marquesfilho/?locale=pt_BR" target="_blank" class="bento-card bg-blue-700 p-6 flex flex-col justify-between group">
-                <div class="flex justify-between items-start"><i class="fab fa-facebook text-3xl text-white/90"></i><i data-lucide="arrow-up-right" class="text-white/50 group-hover:text-white transition-colors"></i></div>
-                <div><span class="text-blue-200 text-xs font-bold uppercase tracking-wider">Curta</span><h3 class="text-xl font-bold text-white mt-1">Facebook</h3></div>
-            </a>
             <a href="jogo.html" class="bento-card bg-gradient-to-br from-indigo-600 to-violet-600 p-6 flex flex-col justify-center items-center text-center group">
                 <div class="bg-white/10 p-4 rounded-full mb-3 group-hover:scale-110 transition-transform"><i data-lucide="gamepad-2" class="w-8 h-8 text-white"></i></div>
                 <h3 class="font-bold text-lg text-white">Jogar Game</h3>
-            </a>
-            <a href="https://www.tiktok.com/coin?rc=CVMSEFNT" target="_blank" class="bento-card bg-gray-800 p-6 flex flex-col justify-center items-center text-center group">
-                <i data-lucide="coins" class="w-8 h-8 text-yellow-400 mb-3 group-hover:rotate-12 transition-transform"></i>
-                <h3 class="font-bold text-lg text-yellow-50">Moedas TikTok</h3>
             </a>
         </div>
 
@@ -267,10 +255,10 @@
                                 <span class="text-[10px] text-gray-600">Máx. 20</span>
                             </div>
                             <div class="flex gap-2 items-center">
-                                <input type="text" id="mural-name" required maxlength="20" placeholder="Ex: João Humorista" class="w-full bg-black/30 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-600" style="color: #818cf8;">
+                                <input type="text" id="mural-name" required maxlength="20" placeholder="Ex: João Humorista" class="w-full bg-black/30 border border-white/10 rounded-xl p-3 text-white focus:outline-none focus:border-indigo-500 transition-colors placeholder-gray-600 font-bold" style="color: #818cf8;">
                                 
-                                <!-- Seletor de Cores - Ajustado para ser o Disco -->
-                                <div class="color-input-wrapper" title="Clique aqui para o disco de cores">
+                                <!-- Seletor de Cores - Estilo Disco -->
+                                <div class="color-input-wrapper" title="Escolher cor do nome">
                                     <input type="color" id="color-picker" value="#818cf8">
                                 </div>
                             </div>
@@ -285,7 +273,7 @@
                             <!-- Painel Emojis -->
                             <div id="emoji-picker-container" class="hidden absolute top-10 right-0 z-50 bg-[#1c1c1e] border border-white/10 rounded-xl shadow-2xl p-2 w-64 max-w-[90vw]">
                                 <div class="flex justify-between items-center mb-2 px-2 border-b border-white/5 pb-1">
-                                    <span class="text-xs font-bold text-gray-400">Emojis</span>
+                                    <span class="text-xs font-bold text-gray-400">Escolha um emoji</span>
                                     <button type="button" onclick="toggleEmojiPicker()" class="text-gray-500 hover:text-white"><i data-lucide="x" class="w-3 h-3"></i></button>
                                 </div>
                                 <div class="emoji-grid custom-scrollbar" id="emoji-grid"></div>
@@ -298,7 +286,6 @@
                 </div>
                 <!-- Lista -->
                 <div class="relative">
-                    <div class="absolute -top-3 right-0 text-[10px] text-gray-500 bg-black/40 px-2 py-1 rounded-full">Últimas mensagens</div>
                     <div id="mural-list" class="space-y-3 max-h-[250px] overflow-y-auto custom-scrollbar pr-2">
                         <div class="text-center py-8 text-gray-500 text-sm italic">Carregando mensagens...</div>
                     </div>
@@ -306,25 +293,8 @@
             </div>
         </div>
 
-        <!-- Vídeos Antigos -->
-        <div class="mt-4">
-            <button onclick="toggleVideos()" class="w-full bento-card p-4 flex items-center justify-between hover:bg-white/5 cursor-pointer">
-                <div class="flex items-center gap-3">
-                    <div class="bg-red-500/20 p-2 rounded-lg text-red-500"><i data-lucide="play-circle" class="w-6 h-6"></i></div>
-                    <span class="font-bold text-lg">Vídeos Antigos</span>
-                </div>
-                <i id="chevron-icon" data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform"></i>
-            </button>
-            <div id="video-gallery" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-0 max-h-0 overflow-hidden transition-all duration-500 opacity-0">
-                <a href="https://www.youtube.com/watch?v=DZjA5np_ry0" target="_blank" class="block group mt-4"><div class="rounded-xl overflow-hidden aspect-video relative"><img src="https://img.youtube.com/vi/DZjA5np_ry0/mqdefault.jpg" class="w-full h-full object-cover"></div></a>
-                <a href="https://www.youtube.com/watch?v=_9HCvQBalMA" target="_blank" class="block group mt-4"><div class="rounded-xl overflow-hidden aspect-video relative"><img src="https://img.youtube.com/vi/_9HCvQBalMA/mqdefault.jpg" class="w-full h-full object-cover"></div></a>
-                <a href="https://www.youtube.com/watch?v=KWYsFo8Uh8M" target="_blank" class="block group mt-4"><div class="rounded-xl overflow-hidden aspect-video relative"><img src="https://img.youtube.com/vi/KWYsFo8Uh8M/mqdefault.jpg" class="w-full h-full object-cover"></div></a>
-                <a href="https://www.youtube.com/watch?v=J3Uki4OOVa4" target="_blank" class="block group mt-4"><div class="rounded-xl overflow-hidden aspect-video relative"><img src="https://img.youtube.com/vi/J3Uki4OOVa4/mqdefault.jpg" class="w-full h-full object-cover"></div></a>
-            </div>
-        </div>
-
         <footer class="mt-12 text-center pb-8">
-            <p class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">© 2025 Luisinho Humor. v5.3</p>
+            <p class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">© 2025 Luisinho Humor</p>
             <div id="message-box" class="h-6 mt-2 text-sm font-medium text-emerald-400 transition-all opacity-0"></div>
         </footer>
     </div>
@@ -350,7 +320,7 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // UI Refs
+        // Refs
         const muralForm = document.getElementById('mural-form');
         const muralList = document.getElementById('mural-list');
         const submitBtn = document.getElementById('submit-btn');
@@ -361,39 +331,50 @@
         const statusDot = document.getElementById('status-dot');
         const statusText = document.getElementById('connection-status');
         const messageBox = document.getElementById('message-box');
+        const emojiGrid = document.getElementById('emoji-grid');
 
         let isAdmin = localStorage.getItem('luisinho_admin') === 'true';
 
+        // --- CORREÇÃO DA COR EM TEMPO REAL ---
+        colorPicker.addEventListener('input', (e) => {
+            const selectedColor = e.target.value;
+            nameInput.style.color = selectedColor; // Muda a cor do texto enquanto digita
+        });
+
+        // --- SISTEMA DE EMOJIS ---
+        const emojiList = ['😂', '❤️', '🔥', '😍', '👏', '🚀', '💀', '😭', '😎', '🎉', '🤡', '🙌', '✨', '💯', '🤣', '🥰', '🫡', '🤯', '😱', '💪', '👍', '👻', '💩', '🎮', '⚽', '🇧🇷', '🖕', '🤔', '🥺', '🥳', '🤩', '🫠', '🫣', '🤫', '✌️', '👋', '🙏', '🤞', '🤘', '🤙', '💡', '🔔', '💬', '🔍', '⚙️', '🔗', '💸', '👀', '🧠', '👑', '💅', '❤️‍🔥'];
+        
+        emojiList.forEach(emoji => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'emoji-btn';
+            btn.textContent = emoji;
+            btn.onclick = () => {
+                msgInput.value += emoji;
+                msgInput.focus();
+                charCount.textContent = msgInput.value.length;
+            };
+            emojiGrid.appendChild(btn);
+        });
+
+        msgInput.addEventListener('input', () => {
+            charCount.textContent = msgInput.value.length;
+        });
+
+        // Global functions
         window.showMessage = (msg) => {
             messageBox.textContent = msg;
             messageBox.classList.remove('opacity-0');
             setTimeout(() => messageBox.classList.add('opacity-0'), 3000);
         };
-
         window.openWhatsAppModal = () => { document.getElementById('whatsapp-modal').style.display = 'flex'; setTimeout(() => document.getElementById('modal-content').classList.replace('opacity-0', 'opacity-100'), 10); };
         window.closeWhatsAppModal = () => { document.getElementById('modal-content').classList.replace('opacity-100', 'opacity-0'); setTimeout(() => document.getElementById('whatsapp-modal').style.display = 'none', 300); };
         window.copyWhatsAppLink = () => { navigator.clipboard.writeText("https://chat.whatsapp.com/EIXwCOfms7J2GBy4Yz57Ku"); window.showMessage("Link copiado!"); };
         window.toggleConnessione = () => document.getElementById('connessione-menu').classList.toggle('hidden');
         window.toggleEmojiPicker = () => document.getElementById('emoji-picker-container').classList.toggle('hidden');
-        window.toggleVideos = () => {
-            const gallery = document.getElementById('video-gallery');
-            const icon = document.getElementById('chevron-icon');
-            gallery.classList.toggle('max-h-0');
-            gallery.classList.toggle('max-h-[1000px]');
-            gallery.classList.toggle('opacity-0');
-            gallery.classList.toggle('opacity-100');
-            icon.style.transform = gallery.classList.contains('opacity-100') ? 'rotate(180deg)' : 'rotate(0deg)';
-        };
 
-        // CORREÇÃO: Escuta a mudança de cor e aplica no campo de nome imediatamente
-        colorPicker.addEventListener('input', (e) => {
-            nameInput.style.color = e.target.value;
-            // Atualiza o fundo do wrapper para dar feedback visual (opcional)
-            // document.querySelector('.color-input-wrapper').style.borderColor = e.target.value;
-        });
-
-        // Auth
-        signInAnonymously(auth).catch(err => console.error("Auth Erro:", err));
+        // Auth & Firestore
+        signInAnonymously(auth).catch(err => console.error(err));
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -453,7 +434,7 @@
             }
         };
 
-        // Enviar Mensagem
+        // Enviar
         muralForm.onsubmit = async (e) => {
             e.preventDefault();
             const name = nameInput.value.trim();
@@ -477,7 +458,6 @@
                 charCount.textContent = "0";
                 window.showMessage("Recado enviado! 🎉");
             } catch (err) {
-                console.error(err);
                 window.showMessage("Erro ao enviar.");
             } finally {
                 submitBtn.disabled = false;
@@ -485,26 +465,6 @@
                 lucide.createIcons();
             }
         };
-
-        // UI Helpers
-        msgInput.oninput = () => charCount.textContent = msgInput.value.length;
-        
-        // Emoji init
-        const emojis = ['😂', '❤️', '🔥', '😍', '👏', '🚀', '💀', '😭', '😎', '🎉', '🤡', '🙌', '✨', '💯', '🤣', '🥰', '🫡', '🤯', '😱', '💪', '👍', '👻', '💩', '🎮', '⚽', '🇧🇷', '🤔', '🥺', '🥳', '🤩', '🫠', '🫣', '🤫', '✌️', '👋', '🙏', '🤞', '🤘', '🤙', '💡', '🔔', '💬', '🔍', '⚙️', '🔗', '💸', '👀', '🧠', '👑', '💅', '❤️‍🔥', '🌟', '🌈', '🌸', '🖕', '🍕', '🙈'];
-        const emojiGrid = document.getElementById('emoji-grid');
-        emojis.forEach(e => {
-            const b = document.createElement('button');
-            b.type = 'button';
-            b.className = "emoji-btn";
-            b.textContent = e;
-            b.onclick = () => {
-                msgInput.value += e;
-                msgInput.dispatchEvent(new Event('input'));
-                window.toggleEmojiPicker();
-            };
-            emojiGrid.appendChild(b);
-        });
-
     </script>
 </body>
 </html>
